@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import {useState} from 'react';
 import {createClient} from '@supabase/supabase-js';
+import Head from 'next/head'
 
 export async function getStaticProps() {
   
@@ -31,11 +32,23 @@ type Image = {
 
 export default function Gallery({images}: {images: Image[]}){
   return (
-        
-    
-          <><div className="bg-white-py-12"></div><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <html lang="es">
+    <><Head>
+      <title>Cars Uruguay</title>
+
+      <meta
+        name="description" content="Lugar donde podras publicar y ver fotos de autos vistos en Uruguay" />
+      <meta charSet="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="keywords" content="Autos,Uruguay,Autos Uruguay,BMW,VOLKSWAGEN,FIAT,FERRARI,PORSCHE,CORVETTE,MCLAREN" />
+      <meta name="robots" content="index" />
+
+      
+      
+    </Head><><div className="bg-white-py-12"></div><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="lg:text-center">
-       
+
         <h1 className="mt-2 text-3xl text-center font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
           Cars Uruguay
         </h1>
@@ -53,13 +66,13 @@ export default function Gallery({images}: {images: Image[]}){
           Contactame para publicar tu auto!
         </p>
         <a
-                    href="mailto:gameerseba@gmail.com"
-                    className="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Enviar Correo
-                  </a>
-      </div></div></>       
-
+          href="mailto:gameerseba@gmail.com"
+          className="mt-5 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+        >
+          Enviar Correo
+        </a>
+      </div></div></></>    
+</html>
   )
 }
 
@@ -83,7 +96,7 @@ function BlurImage({image}: {image: Image}){
         />
       </div>
       
-      <h3 className="mt-4 text-sm text-gray-700">{image.auto}</h3>
+      <h2 className="mt-4 text-sm text-gray-700">{image.auto}</h2>
       <p className="mt-1 text-lg font-medium text-gray-900">{image.username}</p>
     </a>
   )
